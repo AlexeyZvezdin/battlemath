@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
+import { TextInput, Button, Image, StyleSheet, Text, View } from "react-native";
 import './App.css';
 
-function App() {
+class App extends React.Component {
+
+  state = { 
+    text: ''
+  }
+
+  render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <View style={styles.root}>
+      <Text>Battle Math</Text>
+      <TextInput
+        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+        onChangeText={(text) => this.setState({text})}
+        value={this.state.text}
+      />
+      <p>{ this.state.text }</p>
+      <Button
+        onPress={() => console.log('press')}
+        title="Learn More"
+        color="#841584"
+        accessibilityLabel="Learn more about this purple button"
+      />
+    </View>
   );
+  }
 }
+
+const styles = StyleSheet.create({
+  root: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+});
+
 
 export default App;
